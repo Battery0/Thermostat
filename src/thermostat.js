@@ -3,7 +3,7 @@ class Thermostat {
   constructor() {
     this.DEFAULT_TEMPERATURE = 20;
     this.MIN_TEMPERATURE = 10;
-    this.MAX_POWER_SAVE_TEMPERATURE = 25;
+    this.POWER_SAVE_MAX_TEMPERATURE = 25;
     this.MAX_TEMPERATURE = 32
     this.LOW_USAGE_TEMPERATURE_THRESHOLD = 18;
     this.temperature = this.DEFAULT_TEMPERATURE;
@@ -32,7 +32,7 @@ class Thermostat {
 
   _setMaxTemp() {
     if (this.powerSavingMode === true) {
-      return this.MAX_POWER_SAVE_TEMPERATURE;
+      return this.POWER_SAVE_MAX_TEMPERATURE;
     } else if (this.powerSavingMode === false) {
       return this.MAX_TEMPERATURE;
     }
@@ -41,7 +41,7 @@ class Thermostat {
   _updateUsage() {
     if (this.temperature < this.LOW_USAGE_TEMPERATURE_THRESHOLD) {
       this.usage = 'low-usage';
-    } else if (this.temperature <= this.MAX_POWER_SAVE_TEMPERATURE) {
+    } else if (this.temperature <= this.POWER_SAVE_MAX_TEMPERATURE) {
       this.usage = 'medium-usage';
     } else {
       this.usage = 'high-usage';
