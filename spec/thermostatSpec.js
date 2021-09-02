@@ -49,5 +49,22 @@ describe('Thermostat', () => {
     expect(thermostat.temperature).toEqual(32);
   });
 
+  it('can have temperature reset to 20 degrees', () => { 
+    for (let i = 0; i < 3; i++) {
+      thermostat.increase();
+    }
+    thermostat.reset();
+    expect(thermostat.temperature).toEqual(20);
+  });
 
+  it('can return the current energy usage', () => {
+    expect(thermostat.usage).toEqual('medium-usage');
+  });
+
+  it('can return a low energy if below 18 degrees', () => {
+    for (let i = 0; i < 5; i++) {
+      thermostat.decrease();
+    }
+    expect(thermostat.usage).toEqual('low-usage');
+  });
 });
