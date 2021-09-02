@@ -12,4 +12,10 @@ class Thermostat {
   increase() {
     this.temperature++;
   }
+
+  decrease() {
+    if (this.temperature > 10) {
+      this.temperature--;
+    }
+  }
 }

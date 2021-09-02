@@ -12,4 +12,16 @@ describe('Thermostat', () => {
     thermostat.increase();
     expect(thermostat.temperature).toBe(21);
   });
+
+  it('should allow you to decrease the temp with down function', () => {
+    thermostat.decrease();
+    expect(thermostat.temperature).toBe(19);
+  });
+
+  it('cannot go below 10 degrees', () => {
+    for (let i = 0; i < 11; i++) {
+      thermostat.decrease();
+    }
+    expect(thermostat.temperature).toBe(10);
+  })
 });
