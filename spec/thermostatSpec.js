@@ -67,4 +67,13 @@ describe('Thermostat', () => {
     }
     expect(thermostat.usage).toEqual('low-usage');
   });
+
+  it('can return high energy usage if above 25 degrees', () => {
+    thermostat.powerSaveOff();
+    for (let i = 0; i < 6; i++) {
+      thermostat.increase();
+    }
+    expect(thermostat.usage).toEqual('high-usage');
+  });
+
 });
