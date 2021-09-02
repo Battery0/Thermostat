@@ -8,4 +8,8 @@ describe('Thermostat', () => {
     expect(thermostat.temperature).toBe(20);
   });
 
+  it('should allow you to increase the temp with up function', () => {
+    thermostat.increase();
+    expect(thermostat.temperature).toBe(21);
+  });
 });
