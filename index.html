@@ -1,45 +1,20 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <script src='src/thermostat.js'></script>
-  <script>
-
-    document.addEventListener("DOMContentLoaded", () => {
-      // Execute this code when the page is fully loaded
-      document.querySelector('#increase').addEventListener('click', () => {
-        alert("hot hot hot");
-      })
-
-      bg = document.querySelector('#background');
-
-      bg.addEventListener('mousemove', () => {
-        bg.style.background = "purple";
-      })
-
-
-      col1 = document.querySelector('#background');
-
-      col1.addEventListener('mousedown', () => {
-        col1.style.background = "orange";
-
-      })
-
-    });
-
-
-  </script>
+  <title>Thermostat!</title>
 </head>
-<body id="background">
-  <div id=temperature>
-
-  </div>
-  <div id='buttons'>
-    <form>
-      <input id='increase' type='submit' value='Increase Temperature'>
-      <input id='decrease' type='submit' value='Decrease Temperature'>
-      <input id='reset' type='submit' value='Reset Temperature'>
-      <input id='psm' type='submit' value='Toggle Power Saving (on/off)'>
-    </form>
-  </div>
+<body>
+  <section>
+    <h1 id="temperature"></h1>
+    <p>
+    <button id='increase'>+ Temperature</button>
+    <button id='decrease'>- Temperature</button>
+    <button id='reset'>Reset</button>
+    power saving mode is <span id="power-saving-status">on</span>
+    <button id='psm-on'>PSM on</button>
+    <button id='psm-off'>PSM off</button>
+    </p>
+  </section>
+  <script src='src/thermostat.js'></script>
 </body>
 </html>
