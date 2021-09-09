@@ -25,6 +25,10 @@ class Thermostat {
   powerSaveOff() {
     this.powerSavingMode = false;
   }
+
+  powerSaveOn() {
+    this.powerSavingMode = true;
+  }
   
   reset() {
     this.temperature = this.DEFAULT_TEMPERATURE;
