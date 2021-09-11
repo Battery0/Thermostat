@@ -26,13 +26,30 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('#psm-off').addEventListener('click', () => {
     thermostat.powerSaveOff();
     document.querySelector('#power-saving-status').innerText = 'off'
-    updateTemperature();
+    //updateTemperature();
   })
 
   document.querySelector('#psm-on').addEventListener('click', () => {
     thermostat.powerSaveOn();
     document.querySelector('#power-saving-status').innerText = 'on'
-    updateTemperature();
+    //updateTemperature();
   })
+
+  document.getElementById('city-select').addEventListener('submit', () => {
+    event.preventDefault();
+    const city = document.getElementById('city').value;
+    const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=a3d9eb01d4de82b9b8d0849ef604dbed&units=metric`
+    document.getElementById('city-name').innerText = city
+
+    fetch(url)
+      .then((response) => {
+        return response.json()
+      })
+      .then((data) => {
+        document.getElementById('current-temp').innerText = data.main.temp;
+      })
+  });
+
+
 
 });
