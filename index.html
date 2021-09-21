@@ -6,28 +6,32 @@
 </head>
 <body>
   <section>
-    <h1 id='temperature'></h1>
+    <h1>Thermostat</h1>
+    <h3 id='temperature'></h3>
     <p>
-    <button id='increase'>+ Temperature</button>
-    <button id='decrease'>- Temperature</button>
-    <button id='reset'>Reset</button>
-    power saving mode is <span id="power-saving-status">on</span>
-    <button id='psm-on'>PSM on</button>
-    <button id='psm-off'>PSM off</button>
+      <button id='increase'>+ Temperature</button>
+      <button id='decrease'>- Temperature</button>
+      <button id='reset'>Reset</button>
+      power saving mode is <span id="power-saving-status">on</span>
+      <button id='psm-on'>PSM on</button>
+      <button id='psm-off'>PSM off</button>
     </p>
   </section>
   <br>
   <br>
   <br>
   <section>
-    <h3>Please enter the name of the city you want the temperature from:</h3>
+    <h2>Please enter the name of the city you want the temperature from:</h2>
     <form id='city-select'>
       <input id='city' placeholder='City Name' type='text'></input><br>
       <input type='submit'></input>
     </form>
     <br>
     <br>
-    <h1>Current Temperature in <span id='city-name'></span> is: <span id='current-temp'></span></h1>
+    <h1><span id='error'></span></h1>
+    <h3>Current Temperature <span id='city-name'>(Please select location)</span></span><span id='current-temp'></span></h3>
+    <h3>Humidity: <span id='humidity'></span></h3>
+    <h3>Clouds: <span id='main-descrip'></span></h3>
   </section>
   <script src='src/thermostat.js'></script>
   <script src='src/interface.js'></script>

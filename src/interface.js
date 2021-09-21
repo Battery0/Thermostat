@@ -39,16 +39,22 @@ document.addEventListener('DOMContentLoaded', () => {
     event.preventDefault();
     const city = document.getElementById('city').value;
     const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=a3d9eb01d4de82b9b8d0849ef604dbed&units=metric`
-    document.getElementById('city-name').innerText = city
+    document.getElementById('city-name').innerText = 'in ' + city + ' is: '
 
     fetch(url)
       .then((response) => {
         return response.json()
       })
       .then((data) => {
+        console.log(data);
         document.getElementById('current-temp').innerText = data.main.temp;
+        document.getElementById('humidity').innerText = data.main.humidity;
+        document.getElementById('main-descrip').innerText = data.weather[0].description;
       })
-  });
+      .catch(() => {
+        document.getElementById('error').innerText = 'The location you typed does not exist. Please try again.'
+      })
+    });
 
 
 
